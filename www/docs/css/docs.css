@@ -1,0 +1,180 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: Lucida Sans, sans-serif;
+}
+body {
+	background-color: #666;
+	background-image: url(../images/back.gif);
+	background-repeat: repeat-xy;
+	text-align: center;
+	color: #eee;
+}
+a {
+	color: #c30;
+}
+p {
+	font-size: 14px;
+	line-height: 18px;
+}
+li {
+	font-size: 14px;
+	line-height: 18px;
+}
+h2 {
+	font-color: #fff;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+h3 {
+	font-color: #ddd;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+pre {
+	
+}
+#header {
+	width: 100%;
+	background-color: #000;
+	padding: 40px 0px 50px;
+}
+#header .header1 {
+	width: 800px;
+	margin: 0px auto;
+}
+#header img {
+	margin-bottom: 8px;
+}
+#header .sub {
+	font-size: 18px;
+	color: #eee;
+	
+}
+
+#toc {
+	float: left;
+	width: 100%;
+	background-color: #222;
+	border: 6px solid #555;
+	border-left: none;
+	border-right: none;
+	background-image: url(../images/back9.gif);
+	background-repeat: repeat-x;
+}
+#toc .toc1 {
+	width: 700px;
+	margin: 0px auto;
+	text-align: left;
+}
+#toc h3 {
+	margin: 0px 0px 10px;
+	color: #fff;
+	font-size: 22px;
+	font-weight: normal;
+}
+#toc .pod {
+	float: left;
+	background: none;
+	padding: 5px 15px;
+	margin: 20px 50px 30px 0px;
+	border-left: 1px dotted #555;
+}
+#toc .last_pad {
+	margin-right: 0px;
+}
+#toc ul {
+	padding: 0px;
+}
+#toc ul li {
+	font-size: 16px;
+	list-style-type: none;
+	margin: 0px 0px 5px 0px;
+}
+
+.method {
+	background-image: url(../images/back10.gif);
+	background-position: top left;
+	background-repeat: repeat-x;
+	min-height: 220px;
+}
+.method1 {
+	width: 700px;
+	margin: 0px auto;
+	text-align: left;
+	padding: 40px 20px 15px;
+	border-top: none;
+	border-bottom: none;
+	
+}
+.method .head {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.method .link {
+	color: #fff;
+	font-size: 16px;
+}
+.method .backtop {
+	float: right;
+	font-size: 10px;
+	color: #888;
+	margin: -30px 0px 0px;
+}
+.method h2 {
+	font-size: 24px;
+	margin-right: 10px;
+}
+.method h3 {
+	font-size: 22px;
+	line-height: 30px;
+	color: #ffc;
+	font-weight: normal;
+}
+.method h4 {
+	font-size: 17px;
+	color: #000;
+	margin-bottom: 10px;
+}
+.method .details,
+.method .parameters {
+	margin: 0px 100px 30px 0px;
+}
+.method .details ul,
+.method .parameters ul {
+	margin: 0px;
+}
+.method .details ul li,
+.method .parameters ul li {
+	list-style-type: none;
+	margin-bottom: 3px;
+}
+.method .details ul li b,
+.method .parameters ul li b {
+	color: #999;
+}
+.console {
+	clear: both;
+	background-color: #000;
+	
+	font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+	font-size: 13px;
+	color: #00ff00;
+	padding: 0px 0px;
+	border: 6px solid #666;
+	border-top: 4px solid #444;
+	border-left: none;
+	border-right: none;
+}
+.console1 {
+	margin: 0px auto;
+	text-align: left;
+	background-color: #000;
+	padding: 20px 20px;
+	overflow: hidden;
+	border: 1px solid #000;
+	border-top: none;
+	border-bottom: none;
+	width: 700px;
+}

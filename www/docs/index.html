@@ -1,0 +1,944 @@
+<html>
+<head>
+
+<title>Spasmdb.com - Aggregated music data, served up RESTfully.</title>
+<link rel="stylesheet" href="css/docs.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
+
+</head>
+
+<body>
+
+<div id="header">
+<div class='header1'>
+<img src="images/logo.gif"/>
+<div class="sub">
+Aggregated music data, served up RESTfully. Very beta.
+</div>
+</div>
+</div>
+
+<div id="toc">
+<div class="toc1">
+
+<div class="pod">
+<h3>Artists &raquo;</h3>
+<ul>
+<li><a href="#artists-info">/artists/info</a></li>
+<li><a href="#artists-search">/artists/search</a></li>
+</ul>
+</ul>
+</div>
+
+<div class="pod">
+<h3>News &raquo;</h3>
+<ul>
+<li><a href="#interviews">/interviews</a></li>
+<li><a href="#news">/news</a></li>
+<li><a href="#reviews">/reviews</a></li>
+<li><a href="#shows">/shows</a></li>
+</ul>
+</div>
+
+
+<div class="pod">
+<h3>Media &raquo;</h3>
+<ul>
+<li><a href="#audio">/audio</a></li>
+<li><a href="#photos">/photos</a></li>
+<li><a href="#videos">/videos</a></li>
+</ul>
+</div>
+
+
+<div class="pod last_pad">
+<h3>Statistics &raquo;</h3>
+<ul>
+<li><a href="#stats-fans">/stats/fans</a></li>
+<li><a href="#stats-listens">/stats/listens</a></li>
+<li><a href="#stats-p2p">/stats/p2p</a></li>
+<li><a href="#stats-videos">/stats/videos</a></li>
+</ul>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class="method" id="artists-info">
+<div class="method1">
+
+<div class='head'>
+<a name="artists-info"></a>
+<h2>/artists/info</h2>
+<h3>Get artist tags, urls, similar artists, and country of origin.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/artists/info.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/artists/info.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/artists/info.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+</div>
+</div>
+
+<div class='console'>
+<div class='console1'>
+<pre>
+{
+    name : "Meshuggah",
+    slug : "meshuggah",
+    country : "se",
+    tags : ["progressive", "metal", "math"],
+    similar : [
+        {name : "Frederik Thordendals", url : "http://lastfm.com/meshuggah"}
+        {name : "Strapping Young Lad", url : "http://lastfm.com/syl"}
+    ],
+    urls : {
+        lastfm : 'http://www.lastfm.com/meshuggah',
+        youtube : 'http://www.youtube.com/users/meshuggah',
+        twitter : 'http://www.twitter.com/meshuggahband',
+        myspace : 'http://myspace.com/meshuggah'
+    }
+}
+</pre>
+</div>
+</div>
+
+
+<div class="method" id="artists-search">
+<div class="method1">
+
+<div class='head'>
+<a name="artists-search"></a>
+<h2>/artists/search</h2>
+<h3>Search artist names, find partial matches.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/artists/search.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>query:</b> <i>required.</i> Artist name query</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/artists/search.json?v=0.1&query=can" class="link">http://spasmdb.com/api/artists/search.json?v=0.1&query=can</a>
+<br/><br/>
+
+<a href="#" class="backtop">Back to top</a>
+
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+    {
+      slug: "candiria", 
+      name: "Candiria"
+    },
+    {
+      slug: "cannibal-corpse", 
+      name: "Cannibal Corpse"
+    },
+    {
+      slug: "canvas-solaris", 
+      name: "Canvas Solaris"
+    }
+]
+</pre>
+</div>
+</div>
+
+<!-- /interviews -->
+
+<div class="method" id="interviews">
+<div class="method1">
+
+<div class='head'>
+<a name="interviews"></a>
+<h2>/interviews</h2>
+<h3>Get latest interviews with artist.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/interviews.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/interviews.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/interviews.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  {
+    title : "CoC : Meshuggah : Interview",
+    text : "With the exception possibly of Opeth, this ironic 
+            state of affairs has never been more applicable than 
+            in the case of Swedish math-metallers Meshuggah",
+    url : "http://www.chroniclesofchaos.com/articles/chats/1-660_meshuggah.aspx",
+    added : "2010-03-24 16:51:25"
+  }, 
+  {
+    title : "PyroMusic.net - Interview of: Marten Hagstršm - Meshuggah",
+    text : "Feb 10, 2010 ... We also have: 2 Other Interviews Meshuggah: 
+            Interview with Marten Hagstršm (23/ 08/2008) - 1 Gig Review 
+            Meshuggah at the UNSW Roundhouse ...",
+    url : "http://www.pyromusic.net/index.php?p=interviews_interview&id=173",
+    added : "2010-03-22 12:55:44"
+  }
+]
+</pre>
+</div>
+</div>
+
+
+
+<!-- /news -->
+
+<div class="method" id="news">
+<div class="method1">
+
+<div class='head'>
+<a name="news"></a>
+<h2>/news</h2>
+<h3>Get latest artist updates from myspace, twitter, blogs, etc...</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/news.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/news.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/news.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  {
+    title : "MESHUGGAH Featured in Iron Man 2 Video Game!",
+    text : "",
+    url : "http://blogs.myspace.com/index.cfm?fuseaction=blog.view
+           &friendId=9813014&blogId=533175358",
+    added : "Wed Apr 29 02:04:25 +0000 2010"
+  }, 
+  {
+    title : "Alive DVD review in May issue of Premier Guitar",
+    text : "Alive DVD review in May issue of Premier Guitar",
+    url : "http://twitter.com/Meshuggahband/statuses/12659939898",
+    added : "Mon Apr 29 13:34:10 +0000 2010"
+  }
+]
+</pre>
+</div>
+</div>
+
+
+
+
+<!-- /reviews -->
+
+<div class="method" id="reviews">
+<div class="method1">
+
+<div class='head'>
+<a name="reviews"></a>
+<h2>/reviews</h2>
+<h3>Get latest album reviews for artist.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/reviews.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/reviews.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/reviews.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  {
+    "added" :"2010-04-29 04:08:36",
+    "title" :"Meshuggah - obZen review - Metal Storm",
+    "url" :"http://www.metalstorm.net/pub/review.php%3Freview_id%3D5228",
+    "text" :"Meshuggah have not changed their signature style and so &quot; ObZen&quot; stylistically   will have no major surprises for fans of the band. The album is methodically ...",
+     "thumbnail":"http://userserve-ak.last.fm/serve/34s/12389183.jpg",
+     "album":
+       {
+        "name":"obZen",
+        "url":"http://www.last.fm/music/Meshuggah/obZen",
+        "image_small":"http://userserve-ak.last.fm/serve/34s/12389183.jpg"
+       }
+  },
+  {
+    "added" : "2010-04-29 02:29:06",
+    "title" : "Meshuggah - None [EP] - Metal Storm",
+    "url" : "http://www.metalstorm.net/bands/album.php%3Falbum_id%3D1211%26band_id%3D175%26bandname%3DMeshuggah",
+    "text" : "Meshuggah - None [EP] ... Ivan, General matters, site programming. Jeff, Reviews  , interviews and events. Thryce, News. Wrathchild, Forums and moderation ...",
+    "thumbnail" : "http://images.amazon.com/images/P/B000000H0U.01.MZZZZZZZ.jpg",
+    "album": 
+      {
+        "name" : "None",
+        "url" : "http://www.last.fm/music/Meshuggah/None",
+        "image_small" : "http://images.amazon.com/images/P/B000000H0U.01.MZZZZZZZ.jpg"
+      }
+   }
+]
+</pre>
+</div>
+</div>
+
+
+<!-- /shows -->
+
+<div class="method" id="shows">
+<div class="method1">
+
+<div class='head'>
+<a name="shows"></a>
+<h2>/shows</h2>
+<h3>Get artist's upcoming shows information.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/shows.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/shows.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/shows.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  {
+    url : "http://music.myspace.com/index.cfm?fuseaction=music.showDetails&friendid=5556398&Band_Show_ID=38593159",
+    title :"The Bottleneck w/ Converge, Lewd Acts, Black Breath",
+    date :"2010-05-10 08:00:00",
+    location :"Lawrence, Kansas",
+    added :"2010-03-07 10:26:39"
+  },
+  {
+    url :"http://music.myspace.com/index.cfm?fuseaction=music.showDetails&friendid=5556398&Band_Show_ID=38593160",
+    title :"Marquis Theater w/ Converge, Lewd Acts, Black Breath",
+    date :"2010-05-11 08:00:00",
+    location :"Denver, Colorado",
+    added :"2010-03-07 10:26:39"
+  },
+  {
+    url : "http://music.myspace.com/index.cfm?fuseaction=music.showDetails&friendid=5556398&Band_Show_ID=38593161",
+    title : "Neumos w/ Converge, Lewd Acts, Black Breath",
+    date :"2010-05-13 08:00:00",
+    location :"Seattle, Washington",
+    added :"2010-03-07 10:26:39"
+  }
+]
+</pre>
+</div>
+</div>
+
+
+
+
+<!-- /audio -->
+
+<div class="method" id="audio">
+<div class="method1">
+
+<div class='head'>
+<a name="audio"></a>
+<h2>/audio</h2>
+<h3>Get artist's latest streamable tracks.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/audio.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/audio.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/audio.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  {
+    title : "Bleed",
+    album : "Obzen",
+    url : "http://listen.grooveshark.com/song/Bleed/7155311",
+    tinyurl : "http://tinysong.com/3L5j"
+  }, 
+  {
+    title : "Rational Gaze",
+    album : "Nothing",
+    url : "http://listen.grooveshark.com/song/Rational+Gaze/3009245",
+    tinyurl : "http://tinysong.com/d8sl"
+  }
+]
+</pre>
+</div>
+</div>
+
+
+<!-- /photos -->
+
+<div class="method" id="photos">
+<div class="method1">
+
+<div class='head'>
+<a name="photos"></a>
+<h2>/photos</h2>
+<h3>Get latest photos of artist posted on Flickr.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/photos.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/photos.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/photos.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  {
+    title : "Meshuggah - House of Blues Hollywood - 02/03/09",
+    url : "http://www.flickr.com/photos/47466834@N06/4366330293",
+    square : "http://farm5.static.flickr.com/4053/4366330293_3b736a0fe7_s.jpg",
+    thumbnail : "http://farm5.static.flickr.com/4053/4366330293_3b736a0fe7_t.jpg",
+    medium : "http://farm5.static.flickr.com/4053/4366330293_3b736a0fe7_m.jpg",
+    large : "http://farm5.static.flickr.com/4053/4366330293_3b736a0fe7_b.jpg",
+    added : "Wed Mar 19 07:51:08 +0000 2010"
+  }, 
+  {
+    title : "Meshuggah - House of Blues Hollywood - 02/03/09",
+    url : "http://www.flickr.com/photos/47466834@N06/4366330193",
+    square : "http://farm5.static.flickr.com/4002/4366330193_1c683bcd7f_s.jpg",
+    thumbnail : "http://farm5.static.flickr.com/4002/4366330193_1c683bcd7f_t.jpg",
+    medium : "http://farm5.static.flickr.com/4002/4366330193_1c683bcd7f_m.jpg",
+    large : "http://farm5.static.flickr.com/4002/4366330193_1c683bcd7f_b.jpg",
+    added: "Wed Mar 19 07:51:02 +0000 2010"
+  }
+]
+
+</pre>
+</div>
+</div>
+
+
+<!-- /videos -->
+
+<div class="method" id="videos">
+<div class="method1">
+
+<div class='head'>
+<a name="videos"></a>
+<h2>/videos</h2>
+<h3>Get latest YouTube videos featuring artist.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/videos.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/videos.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/videos.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  {
+    url : "http://www.youtube.com/watch?v=eVyH597paQY&feature=youtube_gdata",
+    title : "Meshuggah-Obzen",
+    duration :"267",
+    thumbnail :"http://i.ytimg.com/vi/eVyH597paQY/2.jpg",
+    views :"4399"
+  }, 
+  {
+    url : "http://www.youtube.com/watch?v=rtkuhWZ4kA8&feature=youtube_gdata",
+    title : "Meshuggah - Future Breed Machine (live)",
+    duration : "498",
+    thumbnail :"http://i.ytimg.com/vi/rtkuhWZ4kA8/2.jpg",
+    views :"876"
+  },
+  {
+    url : "http://www.youtube.com/watch?v=KG8aYATEIQU&feature=youtube_gdata",
+    title :"Meshuggah - Spasm",
+    duration :"255",
+    thumbnail :"http://i.ytimg.com/vi/KG8aYATEIQU/2.jpg",
+    views :"16951"
+  },
+  {
+    url :"http://www.youtube.com/watch?v=tW2_QhUMsy4&feature=youtube_gdata",
+    title :"meshuggah-spasm",
+    duration :"255",
+    thumbnail : "http://i.ytimg.com/vi/tW2_QhUMsy4/2.jpg",
+    views :"8954"
+  }
+]
+</pre>
+</div>
+</div>
+
+
+
+<!-- /stats/fans -->
+
+<div class="method" id="stats-fans">
+<div class="method1">
+
+<div class='head'>
+<a name="stats-fans"></a>
+<h2>/stats/fans</h2>
+<h3>Get daily MySpace fan totals for artist.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/stats/fans.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/stats/fans.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/stats/fans.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  ["2010-01-27" , "452101"],
+  ["2010-01-26" , "452078"],
+  ["2010-01-25" , "452010"],
+  ["2010-01-24" , "451992"]
+]
+</pre>
+</div>
+</div>
+
+
+
+
+
+<!-- /stats/listens -->
+
+<div class="method" id="stats-listens">
+<div class="method1">
+
+<div class='head'>
+<a name="stats-listens"></a>
+<h2>/stats/listens</h2>
+<h3>Get LastFM listen totals for artist.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/stats/listens.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/stats/listens.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/stats/listens.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  ["2010-04-07" , "9331194"],
+  ["2010-04-06" , "9331194"],
+  ["2010-04-05" , "9313532"],
+  ["2010-04-04" , "9313532"],
+  ["2010-04-03" , "9313532"],
+  ["2010-04-02" , "9313271"]
+]
+</pre>
+</div>
+</div>
+
+
+<!-- /stats/p2p -->
+
+<div class="method" id="stats-p2p">
+<div class="method1">
+
+<div class='head'>
+<a name="stats-p2p"></a>
+<h2>/stats/p2p</h2>
+<h3>Get daily peer-to-peer activity around artist.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/stats/p2p.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/stats/p2p.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/stats/p2p.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+  ["2010-04-08" , "1063"],
+  ["2010-04-07" , "33"],
+  ["2010-04-06" , "4"],
+  ["2010-04-05" , "20"],
+  ["2010-04-02" , "3"],
+  ["2010-03-29" , "2"],
+  ["2010-03-26" , "0"],
+  ["2010-03-24" , "4"],
+  ["2010-03-22" , "1"],
+  ["2010-03-10" , "0"]
+]
+</pre>
+</div>
+</div>
+
+
+
+<!-- /stats/videos -->
+
+<div class="method" id="stats-videos">
+<div class="method1">
+
+<div class='head'>
+<a name="stats-videos"></a>
+<h2>/stats/videos</h2>
+<h3>Get daily YouTube view totals for artist.</h3>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class='details'>
+<ul>
+<li><b>URL:</b> http://spasmdb.com/api/stats/videos.<i>format</i></li>
+<li><b>Request Methods:</b> GET</li>
+<li><b>Response Formats:</b> json, xml</li>
+</ul>
+</div>
+
+<div class='parameters'>
+<h4>Parameters &raquo;</h4>
+<ul>
+<li><b>v:</b> <i>required.</i> API Version</li>
+<li><b>artist:</b> <i>required.</i> Artist slug</li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+
+
+<h4>Example &raquo;</h4>
+<a href="http://spasmdb.com/api/stats/videos.json?v=0.1&artist=meshuggah" class="link">http://spasmdb.com/api/stats/videos.json?v=0.1&artist=meshuggah</a>
+<br/><br/>
+<a href="#" class="backtop">Back to top</a>
+
+</div>
+</div>
+
+
+<div class='console'>
+<div class='console1'>
+<pre>
+[
+    ["2010-04-07" , "121784"],
+    ["2010-04-06" , "11907"],
+    ["2010-04-04" , "29656"],
+    ["2010-04-03" , "21213"],
+    ["2010-04-02" , "55418"],
+    ["2010-04-01" , "23075"],
+    ["2010-03-31" , "103569"],
+    ["2010-03-29" , "60106"],
+    ["2010-03-27" , "235291"],
+    ["2010-03-26" , "27692"],
+    ["2010-03-25" , "35"],
+    ["2010-03-24" , "6475"],
+    ["2010-03-23" , "17472"]
+]
+</pre>
+</div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $("#toc a").click(function() {
+        var anchor = $(this).attr("href");
+        $.scrollTo(anchor, {'duration': 500});
+        return false;
+    });
+});
+
+</script>
+
+</body>
+</html>
