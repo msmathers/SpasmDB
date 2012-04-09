@@ -3,11 +3,11 @@
 /*
 // API Key hack
 $API_KEY = $_GET['api_key'];
-if(!$API_KEY || $API_KEY != "dmtlsdmdma") {
+if(!$API_KEY || $API_KEY != "thesecretkey") {
     exit();
 }*/
 
-$conn = mysql_connect('localhost','spasmdb','5vhagguhsem');
+$conn = mysql_connect('localhost','user','passwd');
 mysql_select_db('spasm',$conn);
 
 
