@@ -2,13 +2,15 @@
 
 *Disclaimer: SpasmDB ceased development in 2008. Many of its crawlers likely no longer work. The code has been released purely for reference.*
 
-## Compontents
+## Components
 
 * Crawlers consume APIs and scrape HTML sources for artist metadata.
 * Data is managed through a Python DAO layer with a MySQL backend.
 * REST API serves data to clients via HTTP, written in PHP.
 
-## /artists/info
+## API Documentation
+
+### /artists/info
 
 Get artist tags, urls, similar artists, and country of origin.
 
@@ -16,7 +18,7 @@ Get artist tags, urls, similar artists, and country of origin.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -40,7 +42,7 @@ Get artist tags, urls, similar artists, and country of origin.
 }
 ```
 
-## /artists/search
+### /artists/search
 
 Search artist names, find partial matches.
 
@@ -48,7 +50,7 @@ Search artist names, find partial matches.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * query: required. Artist name query
@@ -70,7 +72,7 @@ Search artist names, find partial matches.
 ]
 ```
 
-## /interviews
+### /interviews
 
 Get latest interviews with artist.
 
@@ -78,7 +80,7 @@ Get latest interviews with artist.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -104,7 +106,7 @@ Get latest interviews with artist.
 ]
 ```
 
-## /news
+### /news
 
 Get latest artist updates from myspace, twitter, blogs, etc...
 
@@ -112,7 +114,7 @@ Get latest artist updates from myspace, twitter, blogs, etc...
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -135,7 +137,7 @@ Get latest artist updates from myspace, twitter, blogs, etc...
 ]
 ```
 
-## /reviews
+### /reviews
 
 Get latest album reviews for artist.
 
@@ -143,7 +145,7 @@ Get latest album reviews for artist.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -179,7 +181,7 @@ Get latest album reviews for artist.
 ]
 ```
 
-## /shows
+### /shows
 
 Get artist's upcoming shows information.
 
@@ -187,7 +189,7 @@ Get artist's upcoming shows information.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -218,7 +220,7 @@ Get artist's upcoming shows information.
 ]
 ```
 
-## /audio
+### /audio
 
 Get artist's latest streamable tracks.
 
@@ -226,7 +228,7 @@ Get artist's latest streamable tracks.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -248,7 +250,7 @@ Get artist's latest streamable tracks.
 ]
 ```
 
-## /photos
+### /photos
 
 Get latest photos of artist posted on Flickr.
 
@@ -256,7 +258,7 @@ Get latest photos of artist posted on Flickr.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -284,7 +286,7 @@ Get latest photos of artist posted on Flickr.
 ]
 ```
 
-## /videos
+### /videos
 
 Get latest YouTube videos featuring artist.
 
@@ -292,7 +294,7 @@ Get latest YouTube videos featuring artist.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -330,7 +332,7 @@ Get latest YouTube videos featuring artist.
 ]
 ```
 
-## /stats/fans
+### /stats/fans
 
 Get daily MySpace fan totals for artist.
 
@@ -338,7 +340,7 @@ Get daily MySpace fan totals for artist.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -352,7 +354,7 @@ Get daily MySpace fan totals for artist.
 ]
 ```
 
-## /stats/listens
+### /stats/listens
 
 Get LastFM listen totals for artist.
 
@@ -360,7 +362,7 @@ Get LastFM listen totals for artist.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -376,7 +378,7 @@ Get LastFM listen totals for artist.
 ]
 ```
 
-## /stats/p2p
+### /stats/p2p
 
 Get daily peer-to-peer activity around artist.
 
@@ -384,7 +386,7 @@ Get daily peer-to-peer activity around artist.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
@@ -405,7 +407,7 @@ Example »
 ]
 ```
 
-## /stats/videos
+### /stats/videos
 
 Get daily YouTube view totals for artist.
 
@@ -413,7 +415,7 @@ Get daily YouTube view totals for artist.
 * Request Methods: GET
 * Response Formats: json, xml
 
-### Parameters
+#### Parameters
 
 * v: required. API Version
 * artist: required. Artist slug
